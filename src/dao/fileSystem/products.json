@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "Pancho",
+    "description": "Muy rico",
+    "price": 299,
+    "thumbnail": "http://imagen.com",
+    "code": 27261,
+    "stock": 5,
+    "status": true,
+    "category": "Comida"
+  },
+  {
+    "id": 2,
+    "title": "Arroz michaliszyn",
+    "description": "Muy rico, yamani",
+    "price": 199,
+    "thumbnail": "default",
+    "code": 27262,
+    "stock": 6,
+    "status": true,
+    "category": "Comida"
+  },
+  {
+    "id": 3,
+    "title": "Polenta",
+    "description": "Muy rica",
+    "price": 299,
+    "thumbnail": "default",
+    "code": 27263,
+    "stock": 5,
+    "status": true,
+    "category": "Comida"
+  },
+  {
+    "id": 4,
+    "title": "Empanadas",
+    "description": "Muy ricas",
+    "price": 399,
+    "thumbnail": ["imagen1", "imagen2", "imagen3"],
+    "code": 27264,
+    "stock": 2,
+    "status": true,
+    "category": "Comida"
+  },
+  {
+    "id": 5,
+    "title": "Milanesas de pollo",
+    "description": "Muy ricas, de pollo",
+    "price": 599,
+    "thumbnail": [],
+    "code": 27265,
+    "stock": 50,
+    "status": true,
+    "category": "Comida"
+  },
+  {
+    "id": 6,
+    "title": "Pizza muzza",
+    "description": "XXL",
+    "price": 899,
+    "thumbnail": [],
+    "code": 27266,
+    "stock": 10,
+    "status": true,
+    "category": "Comida"
+  },
+  {
+    "id": 7,
+    "title": "Tarta de verdura",
+    "description": "Acelga",
+    "price": 299,
+    "thumbnail": [],
+    "code": 27267,
+    "stock": 10,
+    "status": true,
+    "category": "Comida"
+  },
+  {
+    "id": 8,
+    "title": "Tarta de JyQ",
+    "description": "Jamon y Queso",
+    "price": 299,
+    "thumbnail": [],
+    "code": 27268,
+    "stock": 10,
+    "status": true,
+    "category": "Comida"
+  },
+  {
+    "id": 9,
+    "title": "Pollo al spiedo",
+    "description": "Comen 3",
+    "price": 1499,
+    "thumbnail": [],
+    "code": 27269,
+    "stock": 10,
+    "status": true,
+    "category": "Comida"
+  },
+  {
+    "id": 10,
+    "title": "Tira de asado",
+    "description": "Hecha al punto justo",
+    "price": 1899,
+    "thumbnail": [],
+    "code": 27270,
+    "stock": 10,
+    "status": true,
+    "category": "Comida"
+  }
+]

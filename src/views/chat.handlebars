@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="chat">
+
+  </div>
+  <form onsubmit="return addMessage()">
+    <label for="">Correo electronico</label>
+    <input type="text" id="msg-user" placeholder="Email" class="item">
+    <label for="msg-content">Mensaje</label>
+    <textarea class="item" id="msg-content" cols="30" rows="10" placeholder="Mensaje"></textarea>
+    <input type="submit" value="Enviar">
+  </form>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>
