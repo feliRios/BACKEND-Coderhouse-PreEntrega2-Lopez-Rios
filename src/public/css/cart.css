@@ -1,0 +1,33 @@
+.cards {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 10px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+  transform: translateY(25px);
+}
+
+.container {
+  background-color: #d3d3d3;
+  flex-basis: 150px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.container h3, .container span {
+  text-align: center;
+  display: block;
+}
+
+.forms {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+form {
+  background-color: antiquewhite;
+  padding: 25px;
+}

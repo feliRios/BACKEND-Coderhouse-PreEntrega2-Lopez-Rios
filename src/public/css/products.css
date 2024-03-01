@@ -1,0 +1,52 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  transform: translateY(25px);
+}
+
+.container {
+  background-color: #d3d3d3;
+  flex-basis: 150px;
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 280px;
+}
+
+.container h3, .container span {
+  text-align: center;
+  display: block;
+}
+
+.forms {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+form {
+  background-color: antiquewhite;
+  padding: 25px;
+}
+
+.controls {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  margin-top: 50px;
+  text-transform: uppercase;
+}
+
+.controls a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: rgba(0, 0, 255, 0.485);
+  pointer-events: none; 
+  cursor: default;
+}

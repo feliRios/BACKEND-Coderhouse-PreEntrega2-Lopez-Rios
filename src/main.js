@@ -14,7 +14,7 @@ import { MessageManager } from "./dao/db/mongoManagers/message_manager.js";
 const mm = new MessageManager();
 
 const app = express();
-const PORT = 8060 || process.env.PORT;
+const PORT = 8080 || process.env.PORT;
 
 // Middleware para enviar y recibir JSON
 app.use(express.json());

@@ -5,21 +5,27 @@ class ProductManager {
   
   constructor(){}
 
-  async getProducts(limit) {
-    if(!isNaN(limit)){
-      if(limit == 0){
-        // Si limit es 0, entonces devuelve todos los documentos (productos)
-        return await productModel.find();
+  async getProducts(limit, page, sort, filter) {
+    if(!isNaN(limit) && limit >= 0){
+      // Si limit es 0, entonces devuelve 10 documentos
+      if(sort != "asc" && sort != "desc"){
+        sort = 1;
+      } else {
+        sort == "asc" ? sort = 1 : sort = -1;
       }
-      return await productModel.find().limit(limit);
+      if(filter){
+        return await productModel.paginate({filter}, {limit: limit || 10, page: page, sort: {price: sort}, lean: true});
+      } else {
+        return await productModel.paginate({}, {limit: limit || 10, page: page, sort: {price: sort}, lean: true});
+      }
     } else {
-      throw new LimitError("Limit debe ser un numero");
+      throw new LimitError("Limit debe ser un numero mayor o igual a 0");
     }
   }
 
   async addProduct(objectProd){
       const data = await this.getProducts(0);
-      if (!data.some(prod => prod.code === objectProd.code)){
+      if (!data.docs.some(prod => prod.code === objectProd.code)){
         await productModel.create(objectProd);
         return true;
       } else {

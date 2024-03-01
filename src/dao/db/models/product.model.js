@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2";
 
 const productCollection = "product";  // El nombre de la coleccion en la DB
 
@@ -40,5 +41,7 @@ const productSchema = new mongoose.Schema({
     enum: ["Tortas", "Alfajores", "Bombones", "Panaderia"]
   }
 })
+
+productSchema.plugin(mongoosePaginate);
 
 export const productModel = mongoose.model(productCollection, productSchema);

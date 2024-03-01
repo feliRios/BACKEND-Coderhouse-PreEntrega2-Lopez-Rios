@@ -9,10 +9,23 @@ routerProd.get("/", async (req, res) => {
   // Servicio GET para obtener los products
   try {
     const limit = req.query.limit ? req.query.limit : 0;
-    const products = await pm.getProducts(limit);
-    res.send({
-      data: products
+    const page = req.query.page ? req.query.page : 1;
+    let sort = req.query.sort;
+    if(req.query.sort == "asc" || req.query.sort == "desc"){
+      console.log(sort);
+    }
+    const filter = JSON.stringify(req.query.filter);
+    const products = await pm.getProducts(limit, page, sort, filter);
+    res.render("products", {
+      "products": products,
+      "totalPages": products["totalPages"],
+      "style": "products.css"
     });
+    // res.send({
+    //   payload: products,
+    //   prevLink: products["hasPrevPage"] ? `http://localhost:8080/api/product?page=${products["prevPage"]}` : null,
+    //   nextLink: products["hasNextPage"] ? `http://localhost:8080/api/product?page=${products["nextPage"]}` : null
+    // });
   } catch(err) {
     err instanceof LimitError ? res.status(400).send({
       name: err.name,
@@ -23,7 +36,6 @@ routerProd.get("/", async (req, res) => {
     });
   }
 });
-
 
 routerProd.get("/:pid", async (req, res) => {
   // Servicio GET by ID de products. Muestra el producto dado su ID (pid)

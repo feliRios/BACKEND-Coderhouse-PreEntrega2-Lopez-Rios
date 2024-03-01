@@ -1,0 +1,46 @@
+<div class="cards">
+  {{#each products.docs}}
+    <article class="container" id="product-{{this.id}}">
+      <div class="header">
+        <h3>{{this.title}}</h3>
+        <span>ID: {{this.id}}</span>
+      </div>
+      <div class="body">
+        <p>Desc: <em>{{this.description}}</em></p>
+        <span>Precio: <em>{{this.price}}</em></span>
+        <span>Codigo: <em>{{this.code}}</em></span>
+      </div>
+      <div class="footer">
+        <span>Stock: {{this.stock}}</span>
+        <p>Categoria: <em>{{this.category}}</em></p>
+        <button>Agregar al carrito</button>
+      </div>
+    </article>
+  {{/each}}
+</div>
+<div class="controls" data-pages="{{totalPages}}">
+  <a class="back">Anterior</a>
+  <a class="forward">Siguiente</a>
+  {{#if products.hasPrevPage}}
+  <style>
+    .controls a:first-child {
+      color: blue;
+      pointer-events: unset; 
+      cursor: pointer;
+    }
+  </style>
+  {{/if}}
+
+  {{#if products.hasNextPage}}
+  <style>
+    .controls a:last-of-type {
+      color: blue;
+      pointer-events: unset; 
+      cursor: pointer;
+    }
+  </style>
+  {{/if}}
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/products.js"></script>

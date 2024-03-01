@@ -25,7 +25,8 @@ class CartManager {
   async getCartProducts(cartId) {
     try {
       // Excepcion para manejar error "CastError" como "NotFoundError"
-      const cartProducts = await cartModel.findOne({"_id": cartId}).populate("products.product");
+      // Metodo "populate" para desglosar la lista de productos del carrito
+      const cartProducts = await cartModel.findOne({"_id": cartId}).populate("products.product").lean();
       if(cartProducts){
         return cartProducts;
       } else {
@@ -55,11 +56,27 @@ class CartManager {
     const cart = await this.getCartById(cartId);
     const existingProductIndex = cart.products.findIndex(p => p.product.toString() === productId);
     if(existingProductIndex !== -1){
-      cart.products[existingProductIndex].quantity += 1;
+      cart.products.splice(existingProductIndex, 1);
     } else {
-      cart.products.push({product: productId, quantity: 1});
+      throw new NotFoundError(`No existe un producto con el ID '${productId}'`);
     }
     await cartModel.updateOne({ _id: cartId }, { products: cart.products });
+  }
+
+  async updateProductQuantity(cartId, productId, newQuantity) {
+    const cart = await this.getCartById(cartId);
+    const existingProductIndex = cart.products.findIndex(p => p.product.toString() === productId);
+    if(existingProductIndex !== -1){
+      cart.products[existingProductIndex].quantity = newQuantity;
+    } else {
+      throw new NotFoundError(`No existe un producto con el ID '${productId}'`);
+    }
+    await cartModel.updateOne({ _id: cartId }, { products: cart.products });
+  }
+
+  async deleteCartProducts(cartId) {
+    const cart = await this.getCartById(cartId);
+    await cartModel.updateOne({ _id: cartId }, { products: [] });
   }
 }
 
