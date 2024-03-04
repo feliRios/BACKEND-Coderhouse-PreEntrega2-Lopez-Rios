@@ -74,6 +74,16 @@ class CartManager {
     await cartModel.updateOne({ _id: cartId }, { products: cart.products });
   }
 
+  // async updateCartProduct(cartId, product) {
+  //   const cart = await this.getCartById(cartId);
+  //   const existingProductIndex = cart.products.findIndex(p => p.product.toString() === product.productId);
+  //   if(existingProductIndex !== -1){
+  //     cart.products[existingProductIndex]
+  //   } else {
+  //     throw new NotFoundError(`No existe un producto con el ID '${productId}'`);
+  //   }
+  // }
+
   async deleteCartProducts(cartId) {
     const cart = await this.getCartById(cartId);
     await cartModel.updateOne({ _id: cartId }, { products: [] });

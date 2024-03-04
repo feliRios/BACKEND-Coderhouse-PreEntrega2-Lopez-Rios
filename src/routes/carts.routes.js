@@ -61,6 +61,16 @@ routerCart.post("/:cid/product/:pid", async (req, res) => {
   }
 });
 
+routerCart.put("/:cid", async (req, res) => {
+  // Servicio PUT de carts, para actualizar el carrito con un arreglo de productos
+  const cid = req.params.cid;
+  try {
+    
+  } catch(err) {
+
+  }
+});
+
 routerCart.delete("/:cid/product/:pid", async (req, res) => {
   // Servicio DELETE de carts, para eliminar del carrito el producto seleccionado
   const cid = req.params.cid;

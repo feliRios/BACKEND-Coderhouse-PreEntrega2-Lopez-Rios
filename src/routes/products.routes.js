@@ -14,7 +14,8 @@ routerProd.get("/", async (req, res) => {
     if(req.query.sort == "asc" || req.query.sort == "desc"){
       console.log(sort);
     }
-    const filter = JSON.stringify(req.query.filter);
+    // Filter es el query -> permite filtrar por categoria de productos
+    const filter = req.query.category;
     const products = await pm.getProducts(limit, page, sort, filter);
     res.render("products", {
       "products": products,

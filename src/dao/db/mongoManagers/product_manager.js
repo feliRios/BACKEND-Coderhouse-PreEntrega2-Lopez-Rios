@@ -14,7 +14,7 @@ class ProductManager {
         sort == "asc" ? sort = 1 : sort = -1;
       }
       if(filter){
-        return await productModel.paginate({filter}, {limit: limit || 10, page: page, sort: {price: sort}, lean: true});
+        return await productModel.paginate({category: filter}, {limit: limit || 10, page: page, sort: {price: sort}, lean: true});
       } else {
         return await productModel.paginate({}, {limit: limit || 10, page: page, sort: {price: sort}, lean: true});
       }
